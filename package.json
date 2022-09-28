@@ -1,0 +1,23 @@
+{
+  "name": "trilha-node-sapatin",
+  "version": "1.0.0",
+  "description": "Capacitacao de NodeJS da Orcestra Gamificacao",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusmartinsxx/Trilha-Node-Sapatin.git"
+  },
+  "author": "Marcus Martins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcusmartinsxx/Trilha-Node-Sapatin/issues"
+  },
+  "homepage": "https://github.com/marcusmartinsxx/Trilha-Node-Sapatin#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
