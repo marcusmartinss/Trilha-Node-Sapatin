@@ -1,10 +1,22 @@
 const express = require('express');
+const path = require('path'); // path é responsável por direcionar o caminho do arquivo
+const routes = require('./routes/routes'); // importa as rotas
+
 const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.set('view engine', 'ejs');
+// define a engine para renderizar as views
+
+app.use(express.static(path.join(__dirname, 'public')));
+// path é a pasta atual, join junta ela com a pasta public, onde ficam os arquivos estáticos
+// dessa forma, não é necessário colocar o caminho completo para os arquivos estáticos
+
+app.use(routes);
+// todas rotas que existirem no arquivo routes.js poderão ser acessadas no index
+
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
 
-app.listen(3000, () => {
-    console.log('Servidor iniciado na porta 3000!');
-});
+// a dependência do nodemon existe para que o servidor seja reiniciado automaticamente a cada alteração no código
