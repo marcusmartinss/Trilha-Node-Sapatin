@@ -9,16 +9,45 @@
     </head>
     <body>
         
-        <form action="/create" method="post">
-            <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
-            <button id="addButton" type="submit">Adicionar</button>
-        </form>
+        <header>
 
-        <ul>
-            <% tasksList.forEach( (task) => { %>
-                <li> <%= task.task %> | <%= task.date.toLocaleDateString('pt-br') %> </li>
-            <% }); %>
-        </ul>
+            <% if ( task == null ) { %>
+                <form action="/create" method="post">
+                    <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
+                    <button id="addButton" type="submit">Adicionar</button>
+                </form>
+            <% } else { %>
+                <form action="/updateOne/<%= task._id %>" method="post">
+                    <input type="text" name="task" id="task" value="<%= task.task %>">
+                    <button id="addButton" type="submit">Atualizar</button>
+                </form>
+            <% } %>
+        </header>
+
+        <section>
+            <ul>
+                <% tasksList.forEach( (task) => { %>
+                    <li>
+                        <%= task.task %> | <%= task.date.toLocaleDateString('pt-br') %>
+                        <a href="/getById/<%= task._id %>/update">Editar</a>
+                        <a href="/getById/<%= task._id %>/delete">Excluir</a>
+                    </li>
+                <% }); %>
+            </ul>
+        </section>
+
+        <% if (taskDelete != null) { %>
+            <section id="modal">
+                <div id="card">
+                    <a href="/">X</a>
+                    <h2>Confirmação</h2>
+                    <hr>
+                    <p> Tem certeza que deseja excluir essa tarefa <%= taskDelete.task %>? </p>
+                    <a href="/deleteOne/<%= taskDelete._id %>">Sim</a>
+                    <a href="/">Não</a>
+                </div>
+            </section>
+        <% } %>
 
         <script defer src="script.js"></script>
     </body>

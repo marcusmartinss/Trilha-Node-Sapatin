@@ -3,7 +3,7 @@ const Task = require('../models/Task');
 const getAllTasks = async (req, res) => {
     try {
         const tasksList = await Task.find(); // procura todas as tasks do banco de dados
-        return res.render('index', { tasksList }); // renderiza a página inicial com a lista de tasks
+        return res.render('index', { tasksList, task: null, taskDelete: null }); // renderiza a página inicial com a lista de tasks
     } catch (error) {
         res.status(500).send({ error: error.message }); // se der erro, retorna a mensagem de erro recebida do objeto Error
     }
@@ -23,10 +23,46 @@ const createTask = async (req, res) => {
     } catch (error) {
         res.status(500).send({ error: error.message }); // se der erro, retorna o erro
     }
-    
 };
+
+const getById = async (req, res) => {
+    try {
+        const tasksList = await Task.find();
+        if (req.params.method == "update") {
+            const task = await Task.findOne({ _id: req.params.id });
+            res.render("index", { task, taskDelete: null, tasksList });
+        } else {
+            const taskDelete = await Task.findOne({ _id: req.params.id });
+            res.render("index", { task: null, taskDelete, tasksList });
+        }
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+};
+
+const updateOneTask = async (req, res) => {
+    try {
+        const {task, taskDelete} = req.body;
+        await Task.updateOne({ _id: req.params.id }, task); // atualiza a task do id que foi passado como parâmetro (id, o que será atualizado)
+        res.redirect('/');
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+}
+
+const deleteOneTask = async (req, res) => {
+    try {
+        await Task.deleteOne({ _id: req.params.id }); // deleta a task do id que foi passado como parâmetro
+        res.redirect('/');
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+}
 
 module.exports = {
     getAllTasks,
     createTask,
+    getById,
+    updateOneTask,
+    deleteOneTask,
 };
