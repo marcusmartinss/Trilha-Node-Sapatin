@@ -42,13 +42,13 @@ const getById = async (req, res) => {
 
 const updateOneTask = async (req, res) => {
     try {
-        const {task, taskDelete} = req.body;
+        const task = req.body;
         await Task.updateOne({ _id: req.params.id }, task); // atualiza a task do id que foi passado como parâmetro (id, o que será atualizado)
         res.redirect('/');
     } catch (error) {
         res.status(500).send({ error: error.message });
     }
-}
+};
 
 const deleteOneTask = async (req, res) => {
     try {
