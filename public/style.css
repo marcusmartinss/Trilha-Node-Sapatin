@@ -216,3 +216,38 @@ div#btns a#btnNo:hover {
     background-color: #FF0000;
     color: #FFF;
 }
+
+.message {
+    color: #FFF;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    position: sticky;
+    z-index: 9999;
+    padding: 1rem;
+    top: 0;
+    justify-content: space-between;
+    display: flex;
+}
+
+.message-danger {
+    background-color: rgb(255, 197, 197);
+    color: #8A0000;
+}
+
+.message-success {
+    background-color: rgb(197, 255, 214);
+    color: #008A1E;
+}
+
+span#close-message {
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding-left: 2rem;
+}
+
+span#close-message:hover {
+    color: rgb(255, 0, 0);
+}
+
