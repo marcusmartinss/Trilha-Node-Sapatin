@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <script defer src="script.js"></script>
         <title>To Do List</title>
     </head>
     <body>
@@ -48,16 +49,18 @@
         <% if (taskDelete != null) { %>
             <section id="modal">
                 <div id="card">
-                    <a href="/">X</a>
-                    <h2>Confirmação</h2>
+                    <div id="head">
+                        <h2>Confirmação</h2>
+                        <a id="close" href="/"><i class="bi bi-x"></i></a>
+                    </div>
                     <hr>
                     <p> Tem certeza que deseja excluir essa tarefa <%= taskDelete.task %>? </p>
-                    <a href="/deleteOne/<%= taskDelete._id %>">Sim</a>
-                    <a href="/">Não</a>
+                    <div id="btns">
+                        <a id="btnYes" href="/deleteOne/<%= taskDelete._id %>">Sim</a>
+                        <a id="btnNo" href="/">Não</a>
+                    </div>
                 </div>
             </section>
         <% } %>
-
-        <script defer src="script.js"></script>
     </body>
 </html>

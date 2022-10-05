@@ -118,3 +118,101 @@ a.btnDelete:hover {
     color: #FFF;
     background-color: #F44336;
 }
+
+section#modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000080; /* os dois ultimos digitos são a transparência	*/
+    z-index: 9999; /* coloca na frente de tudo do projeto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+  }
+
+div#card {
+    width: 30rem;
+    position: relative;
+    background-color: #202024;
+    border-radius: 1rem;
+}
+div#head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+div#card h2 {
+    margin: 0;
+}
+
+div#card a#close {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+div#card a#close:hover {
+    background-color: #ff0000;
+    border-radius: 5rem;
+    padding: 0 0.3rem;
+}
+
+div#card hr {
+    width: 90%;
+    margin: 0 auto;
+    border-color: #CCC;
+}
+
+div#card p {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 2rem;
+}
+
+div#btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+div#btns a {
+    text-decoration: none;
+    padding: .6rem;
+    width: 7rem;
+    text-align: center;
+    background-color: #202024;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+}
+
+div#btns a#btnYes {
+    color: #00AA2A;
+    border: 1px solid #00AA2A;
+    margin-right: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+div#btns a#btnYes:hover {
+    background-color: #00AA2A;
+    color: #FFF;
+}
+
+div#btns a#btnNo {
+    color: #FF0000;
+    border: 1px solid #FF0000;
+    margin-right: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+div#btns a#btnNo:hover {
+    background-color: #FF0000;
+    color: #FFF;
+}
