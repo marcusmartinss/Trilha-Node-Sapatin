@@ -67,12 +67,11 @@ ul li {
     color: #C2C2C2;
     position: relative;
     /* padding: 1.5rem 1rem .7rem 1rem; */
-    padding: .8rem;
+    padding: .8rem .8rem .4rem .8rem;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     transition: all .2s ease-in-out;
 }
 
@@ -83,16 +82,15 @@ ul li a {
     padding-left: 2rem;
 }
 
-ul li span {
+ul div#creation-date {
     font-style: italic;
     font-size: .8rem;
-    padding-left: 1rem;
+    padding-left: .8rem;
 }
 
 ul li div {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 /* ul li:nth-child(odd) {

@@ -7,7 +7,7 @@ const connectToDB = require('./database/db'); // importa a conexão com o banco 
 
 connectToDB();
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.set('view engine', 'ejs'); // define a engine para renderizar as views
 app.use(express.static(path.join(__dirname, 'public'))); // path é a pasta atual, join junta ela com a pasta public, onde ficam os arquivos estáticos, dessa forma, não é necessário colocar o caminho completo para os arquivos
